@@ -3,9 +3,17 @@
 @tailwind utilities;
 
 :root {
+  --brand-bg: #faf9f6;
+  --brand-surface: #f1efea;
+  --brand-dark: #121212;
+  --brand-accent: #a8874a;
+  --brand-accent-soft: #eee7d6;
+  --brand-muted: #7c7a75;
+  --brand-hairline: #1212121a;
+  --font-display: "Josefin Sans", ui-sans-serif, system-ui, sans-serif;
   color: #121212;
-  background: #f7f4ef;
-  font-family: "Josefin Sans", system-ui, sans-serif;
+  background: #faf9f6;
+  font-family: "Source Serif 4", Georgia, ui-serif, serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -18,33 +26,56 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: #f7f4ef;
+  background: #faf9f6;
 }
 
 #root {
   min-height: 100vh;
 }
 
-h1,
-h2,
-.font-serif {
-  font-family: "Source Serif 4", Georgia, serif;
+.font-display,
+.eyebrow {
+  font-family: var(--font-display);
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-amber-brand px-5 py-2.5 text-[13px] font-semibold tracking-wide text-white transition hover:bg-amber-hover;
+  @apply inline-flex items-center justify-center gap-1.5 rounded-full bg-brand-dark px-4 py-2.5 text-[13px] font-semibold text-white shadow-card transition-transform hover:-translate-y-px;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-full border border-hairline bg-transparent px-4 py-2 text-[12px] font-medium tracking-wide text-ink/70 transition hover:border-ink/30 hover:text-ink;
+  @apply inline-flex items-center justify-center text-[13px] font-medium text-brand-muted transition-colors hover:text-brand-dark;
 }
 
 .eyebrow {
-  @apply text-[11px] font-semibold uppercase tracking-[0.22em] text-amber-brand;
+  @apply text-[11px] font-bold uppercase tracking-[0.22em] text-brand-accent;
+}
+
+.ff-marquee {
+  animation: 40s linear infinite ff-marquee;
+  display: inline-flex;
 }
 
 input,
 textarea,
 select {
   font-family: inherit;
+}
+
+.field {
+  @apply w-full rounded-xl border border-brand-hairline bg-brand-bg px-4 py-3 text-sm text-brand-dark outline-none transition-colors placeholder:text-brand-muted/70 focus:border-brand-accent focus:bg-white;
+}
+
+.ff-quote {
+  @apply border-l border-brand-accent pl-5 text-lg italic leading-relaxed;
+}
+
+.ff-hp {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  overflow: hidden;
+}
+
+.ff-logo-invert {
+  filter: invert() brightness(0);
 }

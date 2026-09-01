@@ -1,6 +1,8 @@
 export const BRAND = {
   ink: "#121212",
   amber: "#b45309",
+  accent: "#a8874a",
+  bg: "#faf9f6",
   fonts: {
     sans: "Josefin Sans",
     serif: "Source Serif 4",
