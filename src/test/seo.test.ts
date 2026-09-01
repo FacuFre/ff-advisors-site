@@ -48,4 +48,15 @@ describe("SEO y HTML inicial", () => {
     expect(existsSync(resolve(root, "railway.json"))).toBe(true);
     expect(read("railway.json")).toContain("DOCKERFILE");
   });
+
+  it("nginx escucha $PORT via envsubst (Railway), no un puerto fijo", () => {
+    const nginx = read("nginx.conf");
+    const docker = read("Dockerfile");
+    expect(nginx).toMatch(/listen \$\{PORT\}/);
+    expect(nginx).not.toMatch(/listen 80\b/);
+    expect(nginx).not.toMatch(/listen 3000\b/);
+    expect(docker).toMatch(/\/etc\/nginx\/templates\/default\.conf\.template/);
+    expect(docker).toMatch(/ENV PORT=8080/);
+    expect(docker).toMatch(/EXPOSE 8080/);
+  });
 });
