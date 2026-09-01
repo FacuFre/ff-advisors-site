@@ -1,4 +1,5 @@
 import { FormEvent, useMemo, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { CONTACT, mailto } from "../lib/brand";
 import { calcularFal, formatARS, formatPct, type EmpresaTipo } from "../lib/fal";
 
@@ -69,125 +70,132 @@ export function FalPage() {
 
   return (
     <main>
-      <a
-        href="#elegir"
-        className="block border-b border-amber-brand/20 bg-amber-brand/[0.08] px-5 py-2.5 text-center text-[13px] text-ink/80"
-      >
-        Nuevo FAL: el fondo obligatorio para indemnizaciones rige desde el 1/11/2026. Qué tiene que
-        hacer tu empresa →
-      </a>
-
-      <section className="mx-auto max-w-site px-5 pb-12 pt-14 sm:px-8">
-        <p className="eyebrow">Guía informativa</p>
-        <h1 className="mt-3 max-w-3xl font-serif text-4xl font-normal leading-tight sm:text-5xl">
-          Fondo de Asistencia Laboral (FAL).
-        </h1>
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/70">
-          Desde el 1° de noviembre de 2026, todo empleador del sector privado deberá contribuir a un
-          fondo destinado a cubrir indemnizaciones laborales. Una guía clara de qué es, qué cambia y
-          qué decisiones tenés que tomar antes de esa fecha.
-        </p>
-      </section>
-
-      <section className="border-y border-hairline bg-white py-16">
-        <div className="mx-auto max-w-site px-5 sm:px-8">
-          <p className="eyebrow">Qué es</p>
-          <h2 className="mt-3 font-serif text-4xl font-normal">Un fondo con afectación específica.</h2>
-          <p className="mt-5 max-w-3xl text-sm leading-relaxed text-ink/70">
-            El FAL fue creado por la Ley 27.802 de Modernización Laboral y reglamentado por el
-            Decreto 408/2026. Es una cuenta de capitalización individual por empleador, destinada
-            exclusivamente a asistir el pago de indemnizaciones (despido, preaviso, integración).
-          </p>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-ink/70">
-            No reemplaza el régimen indemnizatorio: lo financia. El patrimonio del fondo tiene
-            afectación específica.
+      <section className="relative overflow-hidden px-5 pb-14 pt-20 sm:px-8 lg:pb-20 lg:pt-28">
+        <div className="pointer-events-none absolute -top-32 right-[-10%] size-[520px] rounded-full bg-brand-accent/[0.05] blur-3xl" />
+        <div className="relative mx-auto max-w-3xl">
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand-accent">Guía informativa</p>
+          <h1 className="mt-4 text-[2.1rem] font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-[3.2rem]">
+            Fondo de Asistencia Laboral (FAL).
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-brand-muted sm:text-[17px]">
+            Desde el 1° de noviembre de 2026, todo empleador del sector privado deberá contribuir a un
+            fondo destinado a cubrir indemnizaciones laborales. Una guía clara de qué es, qué cambia y
+            qué decisiones tenés que tomar antes de esa fecha.
           </p>
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="mx-auto max-w-site px-5 sm:px-8">
-          <p className="eyebrow">Cómo se financia</p>
-          <h2 className="mt-3 font-serif text-4xl font-normal">Cómo se financia.</h2>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            <article className="rounded-xl border border-hairline bg-white p-6">
-              <p className="text-xs font-semibold tracking-[0.2em] text-amber-brand">01</p>
-              <h3 className="mt-2 font-serif text-xl">Contribución mensual obligatoria</h3>
-              <p className="mt-3 text-sm text-ink/65">
-                Sobre la remuneración: 2,5% para PyMEs y 1% para grandes empresas.
-              </p>
-            </article>
-            <article className="rounded-xl border border-hairline bg-white p-6">
-              <p className="text-xs font-semibold tracking-[0.2em] text-amber-brand">02</p>
-              <h3 className="mt-2 font-serif text-xl">No es un costo nuevo</h3>
-              <p className="mt-3 text-sm text-ink/65">
-                La contribución es deducible de Ganancias y se compensa con una reducción
-                equivalente de contribuciones patronales — es una reorganización de cargas
-                existentes.
-              </p>
-            </article>
-            <article className="rounded-xl border border-hairline bg-white p-6">
-              <p className="text-xs font-semibold tracking-[0.2em] text-amber-brand">03</p>
-              <h3 className="mt-2 font-serif text-xl">Inversión regulada</h3>
-              <p className="mt-3 text-sm text-ink/65">
-                Los fondos se invierten exclusivamente en instrumentos financieros negociados en
-                Argentina, con comisión de administración limitada por ley al 1% anual.
-              </p>
-            </article>
+      <section className="px-5 py-16 sm:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[1fr_2fr]">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand-accent">Qué es</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Un fondo con afectación específica.
+            </h2>
+          </div>
+          <div className="space-y-4 text-base leading-relaxed text-brand-muted sm:text-[17px]">
+            <p>
+              El FAL fue creado por la{" "}
+              <strong className="font-semibold text-brand-dark">Ley 27.802 de Modernización Laboral</strong> y
+              reglamentado por el{" "}
+              <strong className="font-semibold text-brand-dark">Decreto 408/2026</strong>. Es una cuenta de
+              capitalización individual por empleador, destinada exclusivamente a asistir el pago de
+              indemnizaciones (despido, preaviso, integración).
+            </p>
+            <p>No reemplaza el régimen indemnizatorio: lo financia. El patrimonio del fondo tiene afectación específica.</p>
           </div>
         </div>
       </section>
 
-      <section id="elegir" className="border-y border-hairline bg-white py-16">
-        <div className="mx-auto max-w-site px-5 sm:px-8">
-          <p className="eyebrow">La decisión que importa</p>
-          <h2 className="mt-3 font-serif text-4xl font-normal">Elegir con criterio o que te lo asignen.</h2>
-          <p className="mt-5 max-w-3xl text-sm leading-relaxed text-ink/70">
-            Cada empresa debe elegir la entidad habilitada que administrará su FAL. Si no elegís, la
-            CNV te asigna una de oficio. Y no todos los FAL serán iguales: difieren en objetivos de
-            inversión, liquidez y gestión.
-          </p>
-          <blockquote className="mt-6 max-w-3xl font-serif text-xl italic text-ink/80">
-            «Elegir con criterio o que te lo asignen: esa es la diferencia entre administrar la
-            obligación y padecerla.»
-          </blockquote>
-          <p className="mt-6 max-w-3xl rounded-xl border border-hairline bg-paper p-5 text-sm leading-relaxed text-ink/70">
-            Nota informativa: entre las entidades que participarán como administradoras se
-            encuentran ALyCs con las que FF Advisors trabaja habitualmente, como INVIU y Balanz. FF
-            Advisors es Agente Productor CNV (matrícula 2016): no es gestora, ALyC ni administrador
-            del FAL.
-          </p>
+      <section className="border-t border-brand-hairline bg-brand-surface/40 px-5 py-20 sm:px-8 lg:py-24">
+        <div className="mx-auto max-w-[1280px]">
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand-accent">Cómo se financia</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Cómo se financia.</h2>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {[
+              ["01", "Contribución mensual obligatoria", "Sobre la remuneración: 2,5% para PyMEs y 1% para grandes empresas."],
+              [
+                "02",
+                "No es un costo nuevo",
+                "La contribución es deducible de Ganancias y se compensa con una reducción equivalente de contribuciones patronales — es una reorganización de cargas existentes.",
+              ],
+              [
+                "03",
+                "Inversión regulada",
+                "Los fondos se invierten exclusivamente en instrumentos financieros negociados en Argentina, con comisión de administración limitada por ley al 1% anual.",
+              ],
+            ].map(([n, t, d]) => (
+              <article key={n} className="flex h-full flex-col rounded-2xl border border-brand-hairline bg-white p-6 shadow-card">
+                <span className="font-mono text-[12px] font-semibold tracking-wider text-brand-accent">{n}</span>
+                <h3 className="mt-3 text-lg font-semibold tracking-tight">{t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-brand-muted">{d}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="mx-auto max-w-site px-5 sm:px-8">
-          <p className="eyebrow">Estimación</p>
-          <h2 className="mt-3 font-serif text-4xl font-normal">Calculá el aporte de tu empresa.</h2>
-          <p className="mt-3 max-w-2xl text-sm text-ink/65">
-            Empleados × sueldo bruto promedio = masa salarial. Sobre esa masa se aplica 2,5% (PyME)
-            o 1% (grande). El capital a 1 y 3 años suma los aportes mensuales, sin rendimientos.
+      <section id="elegir" className="px-5 py-20 sm:px-8 lg:py-24">
+        <div className="mx-auto max-w-[1280px]">
+          <div
+            className="relative overflow-hidden rounded-3xl border border-brand-hairline bg-white p-8 shadow-elevated sm:p-12"
+            style={{ borderLeft: "3px solid #A8874A" }}
+          >
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand-accent">
+              La decisión que importa
+            </p>
+            <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">
+              Elegir con criterio o que te lo asignen.
+            </h2>
+            <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-brand-muted sm:text-[17px]">
+              <p>
+                Cada empresa debe elegir la entidad habilitada que administrará su FAL. Si no elegís, la
+                CNV te asigna una de oficio. Y no todos los FAL serán iguales: difieren en objetivos de
+                inversión, liquidez y gestión.
+              </p>
+              <p className="ff-quote text-brand-dark">
+                «Elegir con criterio o que te lo asignen: esa es la diferencia entre administrar la
+                obligación y padecerla.»
+              </p>
+              <p className="text-sm text-brand-muted">
+                Nota informativa: entre las entidades que participarán como administradoras se
+                encuentran ALyCs con las que FF Advisors trabaja habitualmente, como INVIU y Balanz. FF
+                Advisors es Agente Productor CNV (matrícula 2016): no es gestora, ALyC ni administrador
+                del FAL.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="calculadora" className="border-t border-brand-hairline bg-brand-surface/40 px-5 py-20 sm:px-8 lg:py-24">
+        <div className="mx-auto max-w-[1280px]">
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand-accent">Estimación</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Calculá el aporte de tu empresa.</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-brand-muted">
+            Empleados × sueldo bruto promedio = masa salarial. Sobre esa masa se aplica 2,5% (PyME) o
+            1% (grande). El capital a 1 y 3 años suma los aportes mensuales, sin rendimientos.
           </p>
 
-          <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_1fr]">
-            <div className="rounded-2xl border border-hairline bg-white p-6">
-              <div className="flex rounded-full bg-sand p-1 text-sm">
+          <div className="mt-10 grid gap-8 lg:grid-cols-2">
+            <div className="rounded-3xl border border-brand-hairline bg-white p-6 shadow-card sm:p-8">
+              <div className="flex rounded-full bg-brand-surface p-1 text-sm">
                 <button
                   type="button"
-                  className={`flex-1 rounded-full px-4 py-2 ${tipo === "pyme" ? "bg-ink text-white" : ""}`}
+                  className={`flex-1 rounded-full px-4 py-2 font-semibold ${tipo === "pyme" ? "bg-brand-dark text-white" : "text-brand-dark"}`}
                   onClick={() => setTipo("pyme")}
                 >
                   Micro y PyME · 2,5%
                 </button>
                 <button
                   type="button"
-                  className={`flex-1 rounded-full px-4 py-2 ${tipo === "grande" ? "bg-ink text-white" : ""}`}
+                  className={`flex-1 rounded-full px-4 py-2 font-semibold ${tipo === "grande" ? "bg-brand-dark text-white" : "text-brand-dark"}`}
                   onClick={() => setTipo("grande")}
                 >
                   Grande · 1%
                 </button>
               </div>
-              <label className="mt-6 block text-xs font-medium text-ink/70" htmlFor="empleados">
+              <label className="mt-6 block text-[11px] font-semibold uppercase tracking-wider text-brand-muted" htmlFor="empleados">
                 Empleados en relación de dependencia
               </label>
               <input
@@ -197,9 +205,9 @@ export function FalPage() {
                 max={20000}
                 value={empleados}
                 onChange={(e) => setEmpleados(Number(e.target.value))}
-                className="mt-1 w-full rounded-lg border border-hairline px-3 py-2.5"
+                className="field mt-1.5"
               />
-              <label className="mt-4 block text-xs font-medium text-ink/70" htmlFor="sueldo">
+              <label className="mt-4 block text-[11px] font-semibold uppercase tracking-wider text-brand-muted" htmlFor="sueldo">
                 Sueldo bruto promedio
               </label>
               <input
@@ -209,33 +217,34 @@ export function FalPage() {
                 step={1000}
                 value={sueldo}
                 onChange={(e) => setSueldo(Number(e.target.value))}
-                className="mt-1 w-full rounded-lg border border-hairline px-3 py-2.5"
+                className="field mt-1.5"
               />
             </div>
-            <dl className="grid gap-3 rounded-2xl border border-hairline bg-ink p-6 text-white">
+
+            <dl className="rounded-3xl bg-[#121212] p-8 text-white shadow-elevated">
               <div>
                 <dt className="text-xs uppercase tracking-[0.16em] text-white/50">Masa salarial mensual</dt>
-                <dd className="mt-1 font-serif text-3xl">{formatARS(result.masaSalarial)}</dd>
+                <dd className="mt-1 text-3xl font-semibold tracking-tight">{formatARS(result.masaSalarial)}</dd>
               </div>
-              <div>
+              <div className="mt-5">
                 <dt className="text-xs uppercase tracking-[0.16em] text-white/50">
                   Aporte FAL mensual ({formatPct(result.tasa)})
                 </dt>
-                <dd className="mt-1 font-serif text-3xl text-amber-400">
+                <dd className="mt-1 text-3xl font-semibold tracking-tight text-brand-accent">
                   {formatARS(result.aporteMensual)}
                 </dd>
               </div>
-              <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-4">
+              <div className="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-5">
                 <div>
                   <dt className="text-xs text-white/50">Capital acumulado en un año</dt>
-                  <dd className="mt-1 font-serif text-xl">{formatARS(result.capital1y)}</dd>
+                  <dd className="mt-1 text-xl font-semibold">{formatARS(result.capital1y)}</dd>
                 </div>
                 <div>
                   <dt className="text-xs text-white/50">Capital acumulado en tres años</dt>
-                  <dd className="mt-1 font-serif text-xl">{formatARS(result.capital3y)}</dd>
+                  <dd className="mt-1 text-xl font-semibold">{formatARS(result.capital3y)}</dd>
                 </div>
               </div>
-              <p className="mt-2 text-xs leading-relaxed text-white/55">
+              <p className="mt-6 text-xs leading-relaxed text-white/45">
                 La información presentada es meramente estimativa y se encuentra elaborada sobre la
                 base de la masa salarial declarada, sin contemplar los posibles rendimientos. El
                 cálculo no implica una proyección ni garantiza un determinado resultado de la
@@ -246,92 +255,126 @@ export function FalPage() {
         </div>
       </section>
 
-      <section className="border-y border-hairline bg-white py-16">
-        <div className="mx-auto max-w-site px-5 sm:px-8">
-          <p className="eyebrow">Antes de noviembre</p>
-          <h2 className="mt-3 font-serif text-4xl font-normal">
+      <section className="border-t border-brand-hairline bg-brand-surface/40 px-5 py-20 sm:px-8 lg:py-24">
+        <div className="mx-auto max-w-[1280px]">
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand-accent">Antes de noviembre</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
             Qué conviene definir antes de noviembre.
           </h2>
-          <ol className="mt-8 grid gap-4 md:grid-cols-2">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {[
               "Qué entidad administrará tu FAL.",
               "Qué objetivos de inversión tiene sentido darle según tu nómina y tu caja.",
               "Cómo integra la contribución mensual con tu flujo operativo.",
               "Cómo queda tu cobertura frente a las contingencias de tu plantilla.",
             ].map((item, i) => (
-              <li key={item} className="rounded-xl border border-hairline bg-paper p-5">
-                <span className="text-xs font-semibold tracking-[0.2em] text-amber-brand">
+              <div key={item} className="flex gap-5 rounded-2xl border border-brand-hairline bg-white p-6 shadow-card">
+                <span className="font-mono text-[14px] font-semibold tracking-wider text-brand-accent">
                   0{i + 1}
                 </span>
-                <p className="mt-2 text-sm text-ink/80">{item}</p>
-              </li>
+                <p className="text-base leading-relaxed text-brand-dark">{item}</p>
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="mx-auto max-w-site px-5 sm:px-8">
-          <h2 className="font-serif text-4xl font-normal">Preguntas frecuentes</h2>
-          <dl className="mt-8 space-y-3">
+      <section className="px-5 py-20 sm:px-8 lg:py-24">
+        <div className="mx-auto max-w-[880px]">
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand-accent">Preguntas frecuentes</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Preguntas frecuentes</h2>
+          <div className="mt-10 divide-y divide-brand-hairline overflow-hidden rounded-2xl border border-brand-hairline bg-white shadow-card">
             {FAQ.map((item) => (
-              <details key={item.q} className="rounded-xl border border-hairline bg-white px-5 py-4">
-                <summary className="cursor-pointer font-medium">{item.q}</summary>
-                <p className="mt-3 text-sm leading-relaxed text-ink/70">{item.a}</p>
+              <details key={item.q} className="group">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left text-[15px] font-semibold text-brand-dark transition-colors hover:bg-brand-surface/60">
+                  {item.q}
+                </summary>
+                <p className="px-6 pb-5 text-sm leading-relaxed text-brand-muted">{item.a}</p>
               </details>
             ))}
-          </dl>
+          </div>
         </div>
       </section>
 
-      <section className="border-t border-hairline bg-white py-16">
-        <div className="mx-auto grid max-w-site gap-10 px-5 sm:px-8 lg:grid-cols-2">
-          <div>
-            <p className="eyebrow">Próximo paso</p>
-            <h2 className="mt-3 font-serif text-4xl font-normal">
-              Si querés llegar al 1° de noviembre con la administradora elegida, podemos analizarlo
-              en una reunión.
-            </h2>
-            <p className="mt-4 text-sm text-ink/65">
-              El CTA es elegir administradora antes del 1/11/2026, no “gestionar” el fondo. FF no
-              administra tu FAL.
-            </p>
-            <a href={CONTACT.calendly} className="btn-primary mt-6" target="_blank" rel="noreferrer">
-              Agendar reunión
-            </a>
+      <section id="contacto-fal" className="px-5 py-20 sm:px-8 lg:py-24">
+        <div className="mx-auto max-w-[1280px]">
+          <div className="rounded-3xl bg-[#121212] px-8 py-14 text-white shadow-elevated sm:px-14 sm:py-16">
+            <div className="grid gap-8 lg:grid-cols-[2fr_1fr] lg:items-center">
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand-accent">Próximo paso</p>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+                  Si querés llegar al 1° de noviembre con la administradora elegida, podemos analizarlo
+                  en una reunión.
+                </h2>
+                <p className="mt-4 text-sm text-white/60">
+                  El CTA es elegir administradora antes del 1/11/2026, no “gestionar” el fondo. FF no
+                  administra tu FAL.
+                </p>
+              </div>
+              <div className="lg:justify-self-end">
+                <a
+                  href={CONTACT.calendly}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-4 text-sm font-semibold text-brand-dark shadow-elevated transition-transform hover:-translate-y-px"
+                >
+                  Agendar reunión
+                  <ArrowUpRight className="size-4" />
+                </a>
+              </div>
+            </div>
           </div>
-          <form onSubmit={onLead} className="space-y-3 rounded-2xl border border-hairline bg-paper p-6">
-            <h3 className="font-serif text-2xl">Consulta FAL</h3>
-            <label className="block text-xs text-ink/70" htmlFor="razon">
-              Razón social
-            </label>
-            <input id="razon" name="razon" required className="w-full rounded-lg border border-hairline px-3 py-2.5" />
-            <label className="block text-xs text-ink/70" htmlFor="fal-nombre">
-              Nombre y apellido
-            </label>
-            <input id="fal-nombre" name="nombre" required className="w-full rounded-lg border border-hairline px-3 py-2.5" />
-            <label className="block text-xs text-ink/70" htmlFor="fal-mail">
-              Mail
-            </label>
-            <input id="fal-mail" name="mail" type="email" required className="w-full rounded-lg border border-hairline px-3 py-2.5" />
-            <label className="block text-xs text-ink/70" htmlFor="fal-tel">
-              Teléfono
-            </label>
-            <input id="fal-tel" name="telefono" required className="w-full rounded-lg border border-hairline px-3 py-2.5" />
-            <label className="block text-xs text-ink/70" htmlFor="fal-msg">
-              Mensaje
-            </label>
-            <textarea id="fal-msg" name="mensaje" rows={3} className="w-full rounded-lg border border-hairline px-3 py-2.5" />
-            <button type="submit" className="btn-primary w-full">
-              Enviar consulta
-            </button>
+
+          <form
+            onSubmit={onLead}
+            className="mt-10 grid gap-8 rounded-3xl border border-brand-hairline bg-white p-6 shadow-card sm:p-8 lg:grid-cols-2"
+          >
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand-accent">Consulta FAL</p>
+              <h3 className="mt-2 text-2xl font-semibold tracking-tight">Escribinos para elegir administradora.</h3>
+              <p className="mt-3 text-sm leading-relaxed text-brand-muted">
+                Razón social, nombre, mail, teléfono y un mensaje. Respondemos como Agente Productor
+                CNV, no como administradora del fondo.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-brand-muted" htmlFor="razon">
+                Razón social
+              </label>
+              <input id="razon" name="razon" required className="field" />
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-brand-muted" htmlFor="fal-nombre">
+                Nombre y apellido
+              </label>
+              <input id="fal-nombre" name="nombre" required className="field" />
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-brand-muted" htmlFor="fal-mail">
+                Mail
+              </label>
+              <input id="fal-mail" name="mail" type="email" required className="field" />
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-brand-muted" htmlFor="fal-tel">
+                Teléfono
+              </label>
+              <input id="fal-tel" name="telefono" required className="field" />
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-brand-muted" htmlFor="fal-msg">
+                Mensaje
+              </label>
+              <textarea id="fal-msg" name="mensaje" rows={3} className="field resize-none" />
+              <button type="submit" className="btn-primary w-full py-3.5">
+                Enviar consulta
+                <ArrowUpRight className="size-4" />
+              </button>
+            </div>
           </form>
         </div>
-        <p className="mx-auto mt-10 max-w-site px-5 text-xs leading-relaxed text-ink/50 sm:px-8">
-          Contenido informativo y educativo. No constituye asesoramiento legal, impositivo ni una
-          recomendación de inversión. La operatoria del FAL está sujeta a la reglamentación vigente
-          y a las definiciones pendientes de la CNV. Fuentes: Ley 27.802, Decreto 408/2026.
-        </p>
+      </section>
+
+      <section className="px-5 pb-16 sm:px-8">
+        <div className="mx-auto max-w-[1280px]">
+          <p className="text-[12px] leading-relaxed text-brand-muted">
+            Contenido informativo y educativo. No constituye asesoramiento legal, impositivo ni una
+            recomendación de inversión. La operatoria del FAL está sujeta a la reglamentación vigente
+            y a las definiciones pendientes de la CNV. Fuentes: Ley 27.802, Decreto 408/2026.
+          </p>
+        </div>
       </section>
     </main>
   );

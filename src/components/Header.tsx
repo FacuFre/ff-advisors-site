@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { CONTACT } from "../lib/brand";
 
 const NAV = [
@@ -19,24 +19,24 @@ export function Header() {
   const homeish = location.pathname === "/";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-hairline bg-paper/90 backdrop-blur-md">
-      <div className="mx-auto flex h-[72px] max-w-site items-center justify-between gap-4 px-5 sm:px-8">
-        <Link to="/" className="flex items-center gap-3" aria-label="FF Advisors — Inicio">
+    <nav className="sticky top-0 z-40 border-b border-transparent bg-white/70 backdrop-blur transition-all">
+      <div className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-8 lg:h-[88px] lg:px-10">
+        <Link to="/" className="flex items-center py-2" aria-label="FF Advisors — Inicio">
           <img
             src="/images/ff-logo-black.png"
             alt="FF Advisors"
-            className="h-10 w-auto select-none lg:h-11"
+            className="h-10 w-auto select-none sm:h-12"
             draggable={false}
           />
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Principal">
+        <div className="hidden items-center gap-8 lg:flex">
           {NAV.map((item) =>
             item.href.startsWith("/#") ? (
               <a
                 key={item.href}
                 href={homeish ? item.href.slice(1) : item.href}
-                className="text-[12.5px] font-medium tracking-wide text-ink/70 hover:text-ink"
+                className="text-[13px] font-medium text-brand-muted transition-colors hover:text-brand-dark"
               >
                 {item.label}
               </a>
@@ -44,50 +44,61 @@ export function Header() {
               <NavLink
                 key={item.href}
                 to={item.href}
-                className={({ isActive }) =>
-                  `text-[12.5px] font-medium tracking-wide ${isActive ? "text-ink" : "text-ink/70 hover:text-ink"}`
-                }
+                className="text-[13px] font-medium text-brand-muted transition-colors hover:text-brand-dark"
               >
                 {item.label}
               </NavLink>
             ),
           )}
-        </nav>
+        </div>
 
-        <div className="hidden items-center gap-2 sm:flex">
-          <Link to="/clientes" className="btn-secondary" data-cta="acceso-clientes">
+        <div className="flex items-center gap-2">
+          <Link
+            to="/clientes"
+            className="btn-secondary hidden lg:inline-block"
+            data-cta="acceso-clientes"
+          >
             Acceso clientes
           </Link>
           <a
             href={CONTACT.calendly}
-            className="btn-primary"
+            className="btn-primary hidden sm:inline-flex"
+            data-cta="agendar"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Agendar reunión
+            <ArrowUpRight className="size-3.5" aria-hidden="true" />
+          </a>
+          <a
+            href={CONTACT.calendly}
+            className="btn-primary inline-flex px-3.5 py-2 text-[12px] sm:hidden"
             data-cta="agendar"
             target="_blank"
             rel="noreferrer"
           >
             Agendar
           </a>
+          <button
+            type="button"
+            aria-label={open ? "Cerrar menú" : "Menú"}
+            className="grid size-10 place-items-center rounded-full border border-brand-hairline bg-white lg:hidden"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="size-4" /> : <Menu className="size-4" />}
+          </button>
         </div>
-
-        <button
-          type="button"
-          className="lg:hidden rounded-md p-2 text-ink"
-          aria-label={open ? "Cerrar menú" : "Abrir menú"}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
       </div>
 
       {open ? (
-        <div className="border-t border-hairline bg-paper px-5 py-4 lg:hidden">
+        <div className="border-t border-brand-hairline bg-white px-5 py-4 lg:hidden">
           <nav className="flex flex-col gap-3" aria-label="Móvil">
             {NAV.map((item) =>
               item.href.startsWith("/#") ? (
                 <a
                   key={item.href}
                   href={homeish ? item.href.slice(1) : item.href}
-                  className="py-1 text-sm text-ink/80"
+                  className="py-1 text-sm text-brand-muted"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
@@ -96,14 +107,14 @@ export function Header() {
                 <NavLink
                   key={item.href}
                   to={item.href}
-                  className="py-1 text-sm text-ink/80"
+                  className="py-1 text-sm text-brand-muted"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
                 </NavLink>
               ),
             )}
-            <Link to="/clientes" className="btn-secondary mt-2 w-full" onClick={() => setOpen(false)}>
+            <Link to="/clientes" className="btn-secondary mt-2" onClick={() => setOpen(false)}>
               Acceso clientes
             </Link>
             <a href={CONTACT.calendly} className="btn-primary w-full" target="_blank" rel="noreferrer">
@@ -112,6 +123,6 @@ export function Header() {
           </nav>
         </div>
       ) : null}
-    </header>
+    </nav>
   );
 }
