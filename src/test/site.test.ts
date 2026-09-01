@@ -21,7 +21,7 @@ describe("marca, contacto y límites regulatorios", () => {
     expect(BRAND.ink).toBe("#121212");
     expect(BRAND.amber).toBe("#b45309");
     expect(BRAND.fonts.sans).toBe("Josefin Sans");
-    expect(BRAND.fonts.serif).toBe("Source Serif 4");
+    expect(BRAND.fonts.serif).toBe("Josefin Sans");
   });
 
   it("publica los datos de contacto vivos", () => {

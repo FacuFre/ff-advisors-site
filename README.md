@@ -24,7 +24,7 @@ FF Advisors es **Agente Productor CNV, matrícula 2016**. No es gestora, ALyC ni
 - Calendly: https://calendly.com/facundo-ffadvisors/30min
 - WhatsApp: https://wa.me/541132397427
 
-Marca viva: tinta `#121212`, ámbar `#b45309`, Josefin Sans + Source Serif 4.
+Marca viva: tinta `#121212`, ámbar `#b45309`, Josefin Sans.
 
 ## Desarrollo
 
