@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ffadvisors.com.ar/sitemap.xml
