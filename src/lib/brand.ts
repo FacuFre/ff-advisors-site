@@ -5,7 +5,7 @@ export const BRAND = {
   bg: "#faf9f6",
   fonts: {
     sans: "Josefin Sans",
-    serif: "Source Serif 4",
+    serif: "Josefin Sans",
   },
 } as const;
 

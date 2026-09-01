@@ -20,9 +20,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['"Source Serif 4"', "Georgia", "ui-serif", "serif"],
+        sans: ['"Josefin Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
         display: ['"Josefin Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
-        serif: ['"Source Serif 4"', "Georgia", "serif"],
+        serif: ['"Josefin Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
       },
       boxShadow: {
         card: "0 1px 2px #1118270a, 0 8px 24px -12px #11182714",
