@@ -39,6 +39,8 @@ npm run build
 
 `Dockerfile` + `nginx.conf` + `railway.json` quedan listos para un deploy posterior. **No desplegar a Railway desde este repo todavía.** No tocar DNS, Cloudflare, ffadvisors.com.ar ni Lovable.
 
+Nginx usa la plantilla oficial `envsubst` (`listen ${PORT}`) y arranca en `$PORT` (Railway lo setea; default de imagen `8080`). No hardcodear solo 80 o solo 3000.
+
 SEO: `public/robots.txt`, `public/sitemap.xml`, `public/404.html` (español + `noindex`), `lang="es"` en el HTML.
 
 ## FAL
