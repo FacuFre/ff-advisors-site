@@ -75,3 +75,7 @@ select {
   height: 0;
   overflow: hidden;
 }
+
+.ff-logo-invert {
+  filter: invert() brightness(0);
+}

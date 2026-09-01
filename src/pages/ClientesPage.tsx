@@ -48,7 +48,7 @@ export function ClientesPage() {
               src="/images/ff-isotype.webp"
               alt="FF Advisors"
               draggable={false}
-              className="h-10 w-auto select-none lg:h-11"
+              className="h-10 w-auto select-none ff-logo-invert lg:h-11"
             />
             <span className="hidden border-l border-brand-hairline pl-3 text-[10.5px] font-semibold uppercase tracking-[0.24em] text-brand-muted sm:inline">
               Portal de Clientes
@@ -219,7 +219,7 @@ export function ClientesPage() {
             src="/images/ff-isotype.webp"
             alt="FF Advisors"
             draggable={false}
-            className="h-10 w-auto select-none"
+            className="h-10 w-auto select-none ff-logo-invert"
           />
           <span className="text-center sm:text-right">
             FF Advisors · Agente Productor CNV — Matrícula N° 2016 · ffadvisors.com.ar
