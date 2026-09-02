@@ -3,6 +3,7 @@ import { MessageCircle } from "lucide-react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { MarketTicker } from "./MarketTicker";
+import { FalTopBar } from "./FalTopBar";
 import { CONTACT } from "../lib/brand";
 
 const TOOL_PATHS = new Set(["/agro", "/aprende", "/clientes"]);
@@ -16,6 +17,7 @@ export function Layout() {
       {useMainChrome ? (
         <div id={pathname === "/" ? "inicio" : undefined}>
           {pathname === "/" ? <MarketTicker /> : null}
+          {pathname === "/fal" ? <FalTopBar /> : null}
           <Header />
           <Outlet />
           <Footer />
